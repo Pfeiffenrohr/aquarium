@@ -3,6 +3,7 @@
 	<name>aquarium-deamon</name>
 	<comment></comment>
 	<projects>
+		<project>bmw</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

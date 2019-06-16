@@ -19,20 +19,14 @@ RUN apt-get update && apt-get install -y dos2unix
 
 RUN mkdir /var/lib/aquarium
 WORKDIR /var/lib/aquarium/
-ADD target/aquarium-deamon-0.0.1-SNAPSHOT.jar /var/lib/cbudgetbatch/
+ADD target/aquarium-deamon-0.0.1-SNAPSHOT.jar /var/lib/aquarium/
 
-ADD scripts/auslesen.sh /var/lib/aquarium/auslesen.sh
-RUN chmod 777 /var/lib/aquarium/auslesen.sh
-RUN dos2unix /var/lib/aquarium/auslesen.sh
+RUN mkdir /var/lib/aquarium/bin
+COPY scripts/* /var/lib/aquarium/bin/
+RUN chmod 777 /var/lib/aquarium/bin/*
+RUN dos2unix /var/lib/aquarium/bin/*
 
-ADD scripts/wrapper.sh /var/lib/aquarium/wrapper.sh
-RUN chmod 777 /var/lib/aquarium/wrapper.sh
-RUN dos2unix /var/lib/aquarium/wrapper.sh
-
-ADD scripts/plan_cache_trigger.sh /var/lib/aquarium/startDeamon.sh
-RUN chmod 777 /var/lib/aquarium/startDeamon.sh
-RUN dos2unix /var/lib/aquarium/startDeamon.sh
 
 COPY lib/*.jar /var/lib/aquarium/
 COPY target/lib/*.jar /var/lib/aquarium/
-ENTRYPOINT ["/var/lib/aquarium/wrapper.sh"]
+ENTRYPOINT ["/var/lib/aquarium/bin/wrapper.sh"]

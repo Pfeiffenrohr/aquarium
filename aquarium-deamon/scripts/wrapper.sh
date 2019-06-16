@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Start the first process
-/var/lib/aquarium/startDeamon.sh -D &
+/var/lib/aquarium/bin/startDeamon.sh -D &
 status=$?
 if [ $status -ne 0 ]; then
   echo "Failed to start my_first_process: $status"

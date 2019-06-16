@@ -24,7 +24,8 @@ public class Logging {
 		String akt_time=formatter.format(cal.getTime());
 		if (level <= debug)
 		{
-		fh.writeFile(logfile, akt_time +" " + str, true);
+		//fh.writeFile(logfile, akt_time +" " + str, true);
+		System.out.println(akt_time +" " + str);
 		}
 	}
 	

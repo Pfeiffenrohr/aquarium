@@ -1,0 +1,21 @@
+#logfile /home/aquarium/logs/aquarium.log
+logfile=/tmp/aquarium.log
+
+# Debug kann zwischen 0 und 3 sein 
+# 0 bedeutet nur Fehler. 3 bedeutet sehr gesprächig.
+
+debug 3 
+
+# Inforamtionen zur Datenbank
+#db_server jdbc:mysql://localhost/aquarium
+#db_server jdbc:mysql://192.168.2.19/aquarium
+db_server jdbc:mysql://192.168.2.28/aquarium
+db_user aquarium
+db_password aquarium
+
+#Arbeitsverzeichnis mit den Scripten
+
+#workdir /home/aquarium
+workdir /var/lib/aquarium/
+backup_IP 192.168.2.28
+backup_port 2567

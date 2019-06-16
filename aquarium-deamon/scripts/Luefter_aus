@@ -1,0 +1,14 @@
+#!/bin/bash
+WORKDIR=$1
+Zeit=`date '+%H%M%S'`
+datum=`date '+%Y%m%d'`
+echo "Schalte Luefter aus"
+# Dose 5 
+echo io set port 2 10 10 | nc -w 2 192.168.2.24 2701
+RC=$?
+
+if [ $RC -eq 0 ]; then
+        sql="insert into ausEin_Historie values(null,$datum,$Zeit,'Luefter',0,0)"
+        mysql -u aquarium -paquarium -h $dbhost -D aquarium -e "$sql"
+fi
+exit $RC
