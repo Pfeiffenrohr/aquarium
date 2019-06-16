@@ -29,4 +29,4 @@ RUN dos2unix /var/lib/aquarium/bin/*
 
 COPY lib/*.jar /var/lib/aquarium/
 COPY target/lib/*.jar /var/lib/aquarium/
-ENTRYPOINT ["/var/lib/aquarium/bin/wrapper.sh"]
+ENTRYPOINT ["/var/lib/aquarium/bin/startDeamon.sh"]
