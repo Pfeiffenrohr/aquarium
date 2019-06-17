@@ -21,6 +21,7 @@ RUN mkdir /var/lib/aquarium
 WORKDIR /var/lib/aquarium/
 ADD target/aquarium-deamon-0.0.1-SNAPSHOT.jar /var/lib/aquarium/
 
+RUN mkdir /var/lib/aquarium/sensoren
 RUN mkdir /var/lib/aquarium/bin
 COPY scripts/* /var/lib/aquarium/bin/
 RUN chmod 777 /var/lib/aquarium/bin/*
