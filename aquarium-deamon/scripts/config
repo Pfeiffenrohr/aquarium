@@ -17,5 +17,5 @@ db_password aquarium
 
 #workdir /home/aquarium
 workdir /var/lib/aquarium/
-backup_IP 192.168.2.28
+backup_IP 192.168.2.29
 backup_port 2567

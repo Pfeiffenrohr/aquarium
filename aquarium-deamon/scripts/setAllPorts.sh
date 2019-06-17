@@ -1,1 +1,3 @@
-fh.writeFile(logfile, akt_time +" " + str, true);
+#!/bin/bash                                                                                                                                                                                                                                                                    
+#echo "Vorerst deaktiviert"                                                                                                                                                                                                                                                    
+echo io set ddr 2 ff | nc -w 2 192.168.2.24 2701     

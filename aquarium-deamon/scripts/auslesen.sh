@@ -19,9 +19,11 @@ do
   # Print measurement results
   #echo "$i: $TEMP"
   sql="$sql,$TEMP"
+  echo "$TEMP" >$WORKDIR/sensoren/$i
+  echo "$Zeit $TEMP" >>$WORKDIR/sensoren/${i}_hist
+  
 done
 sql="$sql,0.0)"
 #echo $sql
 mysql -u aquarium -paquarium -h $dbhost -D aquarium -e "$sql"
-fi
 exit 0
