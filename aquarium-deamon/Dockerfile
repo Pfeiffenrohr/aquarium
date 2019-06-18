@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN akk update 
+RUN apk update 
 RUN apk add openjdk-8-jdk 
 RUN apk  add netcat-openbsd 
 RUN apk mysql-client
