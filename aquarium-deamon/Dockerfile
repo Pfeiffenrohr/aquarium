@@ -1,23 +1,9 @@
-FROM ubuntu:latest
+FROM alpine:latest
 
-RUN apt-get update && \
-    apt-get install -y openjdk-8-jdk && \
-    apt-get install -y ant && \
-    apt-get clean;
-
-# Fix certificate issues
-RUN apt-get update && \
-    apt-get install ca-certificates-java && \
-    apt-get clean && \
-    update-ca-certificates -f;
-    
-RUN apt-get update && \
-    apt-get install -y netcat-openbsd &&\
-    apt-get clean;
-    
-RUN apt-get update && \
-    apt-get install -y mysql-client &&\
-    apt-get clean;
+RUN akk update 
+RUN apk add openjdk-8-jdk 
+RUN apk  add netcat-openbsd 
+RUN apk mysql-client
 
 # Setup JAVA_HOME -- useful for docker commandline
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
