@@ -99,7 +99,8 @@ public class Aquarium {
 			try {
 				// System.out.println("www1");
 				// Verbindungsversuch zur Datanbank
-
+				if (db.con == null)	
+				{
 				if (testDB.dataBaseConnect((String) config.get("db_user"),
 						(String) config.get("db_password"),
 						(String) config.get("db_server"))) {
@@ -112,7 +113,7 @@ public class Aquarium {
 					}
 					log.writeLog(2, "Error Keine Verbindung zur Datenbank!!!");
 				}
-
+				}
 				if (db.con == null)
 					if (db.dataBaseConnect((String) config.get("db_user"),
 							(String) config.get("db_password"),
