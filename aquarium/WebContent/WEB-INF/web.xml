@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN" "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+
+<web-app>
+<servlet>
+<servlet-name>navigation</servlet-name>
+<servlet-class>steuerung.Navigation</servlet-class>
+</servlet>
+<servlet>
+<servlet-name>index</servlet-name>
+<servlet-class>steuerung.Frames</servlet-class>
+</servlet>
+<servlet>
+<servlet-name>status</servlet-name>
+<servlet-class>steuerung.Main</servlet-class>
+</servlet>
+<servlet>
+<servlet-name>temperaturaendern</servlet-name>
+<servlet-class>steuerung.TemperaturAendern</servlet-class>
+</servlet>
+<servlet>
+<servlet-name>temperaturvergleich</servlet-name>
+<servlet-class>steuerung.TemperaturVergleich</servlet-class>
+</servlet>
+<servlet>
+<servlet-name>wasserstand</servlet-name>
+<servlet-class>steuerung.Wasserstand</servlet-class>
+</servlet>
+<servlet>
+<servlet-name>GenerateChart</servlet-name>
+<servlet-class>steuerung.GenerateChart</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>index</servlet-name>
+<url-pattern>/index</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>navigation</servlet-name>
+<url-pattern>/navigation</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>status</servlet-name>
+<url-pattern>/status</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>temperaturaendern</servlet-name>
+<url-pattern>/temperaturaendern</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>temperaturvergleich</servlet-name>
+<url-pattern>/temperaturvergleich</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>wasserstand</servlet-name>
+<url-pattern>/wasserstand</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+<servlet-name>GenerateChart</servlet-name>
+<url-pattern>/chart</url-pattern>
+</servlet-mapping>
+<context-param>
+	<param-name>DBusername</param-name>
+	<param-value>aquarium</param-value>
+</context-param>
+<context-param>
+    <param-name>DBuserpassword</param-name>
+    <param-value>aquarium</param-value>
+</context-param>
+<context-param>
+    <param-name>DBconnectstring</param-name>
+    <param-value>jdbc:mysql://localhost/aquarium</param-value>
+  </context-param>
+</web-app>
+
