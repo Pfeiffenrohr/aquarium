@@ -38,33 +38,30 @@ import common.SystemExecute;;
 	    Hashtable status_hash = (Hashtable)db.getStatus();
 		Status.Heizung = ((Integer) status_hash.get("Heizung")).intValue();
 		//for (int i = 0; i < 5; i++) {
-		while (run==1)
-		{
-			
-			// Das muß eine Endlosschleife werden
-			if (db.dataBaseConnect((String) config.get("db_user"),
-					(String) config.get("db_password"),
-					(String) config.get("db_server"))) {
-				log.writeLog(4, "Verbindung zur Datenbank erstellt ..");
-			} else {
-				log.writeLog(0,
-						"Error!!!! Kann mich nicht zur Datenbank verbinden !!!!");
-				try {
-					Thread.sleep(300000);
-				} catch (Exception e) {
-					System.out.println(e);
-					log.writeLog(0, e.toString());
+		while (run == 1) {
+			if (db == null) {
+				// Das muß eine Endlosschleife werden
+				if (db.dataBaseConnect((String) config.get("db_user"), (String) config.get("db_password"),
+						(String) config.get("db_server"))) {
+					log.writeLog(4, "Verbindung zur Datenbank erstellt ..");
+				} else {
+					log.writeLog(0, "Error!!!! Kann mich nicht zur Datenbank verbinden !!!!");
+					try {
+						Thread.sleep(300000);
+					} catch (Exception e) {
+						System.out.println(e);
+						log.writeLog(0, e.toString());
+					}
+					continue;
 				}
-				continue;
 			}
-			if ( db.con != null)
-			{
-			Calendar cal = Calendar.getInstance();
-			SimpleDateFormat formatter = new SimpleDateFormat("HHmm");
-		
-			String zeit = formatter.format(cal.getTime());
-			//Solltemperaturn auslesen
-		    double sollTemp=db.getTempSoll(zeit+"00");
+			if (db.con != null) {
+				Calendar cal = Calendar.getInstance();
+				SimpleDateFormat formatter = new SimpleDateFormat("HHmm");
+
+				String zeit = formatter.format(cal.getTime());
+				// Solltemperaturn auslesen
+				double sollTemp = db.getTempSoll(zeit+"00");
 		    log.solltemp=sollTemp;
 		  
 		    //Isttemperatur auslesen
@@ -167,7 +164,6 @@ import common.SystemExecute;;
 				System.out.println(e);
 				log.writeLog(0,"!!!Error Daten in Sensor1 ist kein Doublewert!!!!!");
 			}
-		    db.closeConnection();
 			}
 			try {
 				Thread.sleep(300000);
