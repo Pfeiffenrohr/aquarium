@@ -1,5 +1,6 @@
 aquariumdeamon:  
   image: pfeiffenrohr/aquariumdeamon:latest
+  container_name: "aquarium-deamon"  
   ports:
     - "2567:2567"
     - "8976:8976"

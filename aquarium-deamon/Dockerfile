@@ -35,6 +35,7 @@ COPY scripts/* /var/lib/aquarium/bin/
 RUN chmod 777 /var/lib/aquarium/bin/*
 RUN dos2unix /var/lib/aquarium/bin/*
 
+RUN cd /var/lib/aquarium/sensoren && ln -s 100e3e9002080016 sensor1
 
 COPY lib/*.jar /var/lib/aquarium/
 COPY target/lib/*.jar /var/lib/aquarium/
