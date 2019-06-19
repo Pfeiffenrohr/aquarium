@@ -5,7 +5,7 @@ aquariumdeamon:
     - "2567:2567"
     - "8976:8976"
   volumes:
-    - config:/var/lib/aquarium/config   
+    - ./config:/var/lib/aquarium/config   
   restart: always
   environment:
       dbhost: 192.168.2.28
