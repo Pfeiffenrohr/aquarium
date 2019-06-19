@@ -25,8 +25,8 @@ RUN export JAVA_HOME
 
 RUN apt-get update && apt-get install -y dos2unix
 
-RUN cat "Europe/Berlin" > /etc/timezone
-RUN ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+#RUN cat "Europe/Berlin" > /etc/timezone
+#RUN ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 
 RUN mkdir /var/lib/aquarium
 WORKDIR /var/lib/aquarium/
