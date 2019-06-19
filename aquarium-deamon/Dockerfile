@@ -25,12 +25,16 @@ RUN export JAVA_HOME
 
 RUN apt-get update && apt-get install -y dos2unix
 
+RUN cat "Europe/Berlin" > /etc/timezone
+RUN ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+
 RUN mkdir /var/lib/aquarium
 WORKDIR /var/lib/aquarium/
 ADD target/aquarium-deamon-0.0.1-SNAPSHOT.jar /var/lib/aquarium/
 
 RUN mkdir /var/lib/aquarium/sensoren
 RUN mkdir /var/lib/aquarium/bin
+RUN mkdir /var/lib/aquarium/config
 COPY scripts/* /var/lib/aquarium/bin/
 RUN chmod 777 /var/lib/aquarium/bin/*
 RUN dos2unix /var/lib/aquarium/bin/*
