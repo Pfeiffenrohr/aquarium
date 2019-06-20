@@ -64,7 +64,9 @@ public class LichtThread implements Runnable {
 				int sollLicht = db.getLichtSoll(zeit + "00");
 				// Isttemperatur auslesen
 				String workdir = (String) config.get("workdir");
+				log.writeLog(8, "Licht soll = "+ sollLicht + " Status.Licht = "+Status.Licht);
 				try {
+				
 					if (Status.Licht == 0 && sollLicht == 1) {
 						// licht einschalten
 						if (Status.os.equals("win")) {
