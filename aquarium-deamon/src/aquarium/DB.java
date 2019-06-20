@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.Hashtable;
 import java.util.Vector;
 public class DB {
-		boolean debug=true;
+		boolean debug=false;
 		protected Connection con = null;
 		
 		public boolean dataBaseConnect(String username,String password, String connectString) {
