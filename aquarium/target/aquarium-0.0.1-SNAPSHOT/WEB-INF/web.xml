@@ -67,7 +67,7 @@
 </context-param>
 <context-param>
     <param-name>DBconnectstring</param-name>
-    <param-value>jdbc:mysql://192.168.2.28/aquarium</param-value>
+    <param-value>jdbc:mysql://localhost/aquarium</param-value>
   </context-param>
 </web-app>
 

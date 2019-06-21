@@ -1,0 +1,7 @@
+aquarium-web:  
+  image: pfeiffenrohr/aquariumweb:latest
+  container_name: aquarium_web
+  ports:
+    - "8083:8080"
+  restart: always   
+ 
