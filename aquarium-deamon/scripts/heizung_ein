@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 WORKDIR=$1
 Zeit=`date '+%H%M%S'`
 datum=`date '+%Y%m%d'`
