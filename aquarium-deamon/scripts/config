@@ -6,7 +6,7 @@ logfile=/tmp/aquarium.log
 
 debug 3 
 
-# Inforamtionen zur Datenbank
+# Inforamtionen zur Datenbank 
 #db_server jdbc:mysql://localhost/aquarium
 #db_server jdbc:mysql://192.168.2.19/aquarium
 db_server jdbc:mysql://192.168.2.29/aquarium
