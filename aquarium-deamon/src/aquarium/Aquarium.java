@@ -57,6 +57,7 @@ public class Aquarium {
 		//log.debug = 8;
 		log.writeLog(2, "Setze Debug auf " + debug);
 		Status.Server = 0;
+		String forceMaster = (String) config.get("forceMaster");
 		// Verbindung zur Datenbank
 		DB db = new DB();
 		if (db.dataBaseConnect((String) config.get("db_user"),
@@ -96,6 +97,10 @@ public class Aquarium {
 		DB testDB = new DB();
 		while (true) {
 			int becomeMaster = 0;
+			if (forceMaster.contentEquals("true"))
+			{
+				becomeMaster = 1;
+			}
 			try {
 				// System.out.println("www1");
 				// Verbindungsversuch zur Datanbank
