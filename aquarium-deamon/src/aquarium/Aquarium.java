@@ -55,7 +55,7 @@ public class Aquarium {
 		log.debug = new Integer(debug).intValue();
 		log.isActive = false;
 		//log.debug = 8;
-		log.writeLog(2, "Setze Debug auf " + debug);
+		log.writeLog(2, "Setze Debug auf " + debug); 
 		Status.Server = 0;
 		String forceMaster = (String) config.get("forceMaster");
 		// Verbindung zur Datenbank
