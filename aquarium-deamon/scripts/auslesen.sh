@@ -25,5 +25,5 @@ do
 done
 sql="$sql,0.0)"
 #echo $sql
-mysql -u aquarium -paquarium -h $dbhost -D aquarium -e "$sql"
+mysql -u aquarium -paquarium -h $dbhost -D aquarium -e "$sql" >/dev/null 2>&1
 exit 0
