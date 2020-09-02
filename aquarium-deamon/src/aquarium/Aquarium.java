@@ -85,7 +85,14 @@ public class Aquarium {
 		comm.env = config;
 		comm.log = log;
 		log.writeLog(2, "Starte Communicationthread ..");
+		try {
 		tComm.start();
+		}
+		catch (Exception e) {
+			System.err.println("Fehler beim Starten des Communicationthreads");
+			
+		}
+		log.writeLog(2, "OK! Communicationthread gestartet");
 		String host = (String) config.get("backup_IP");
 		int port = new Integer((String) config.get("backup_port"));
 		// Starte Listenerthrad

@@ -9,6 +9,6 @@ RC=$?
 
 if [ $RC -eq 0 ]; then
         sql="insert into ausEin_Historie values(null,$datum,$Zeit,'Heizung',1,0)"
-        mysql -u aquarium -paquarium -h $dbhost -D aquarium -e "$sql"
+        mysql -u aquarium -paquarium -h $dbhost -D aquarium -e "$sql" >/dev/null 2>&1
 fi
 exit $RC
