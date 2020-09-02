@@ -375,7 +375,7 @@ public class Aquarium {
 		FileHandling fh = new FileHandling();
 		if ( args.length < 1)
 		{
-			System.err.println("Configfile is missing. Ussage aquarium <configfile>");
+			System.err.println("Configfile is missing. Usage aquarium <configfile>");
 			System.exit(1);
 		}
 		String configfile = args [0];
