@@ -127,7 +127,7 @@ public class DB {
 			try {
 				PreparedStatement stmt;
 				ResultSet res = null;
-				String stm_str="select avg(temp1),avg(temp2) from temperatur where datum="+datum;
+				String stm_str="select avg(temp1),avg(temp2) from temperatur where datum='"+datum+"'";
 				if (debug) System.out.println(stm_str);
 				stmt = con.prepareStatement(stm_str);
 				res = stmt.executeQuery();
@@ -151,7 +151,7 @@ public class DB {
 			try {
 				PreparedStatement stmt;
 				ResultSet res = null;
-				String stm_str="select max(temp1),max(temp2) from temperatur where datum="+datum;
+				String stm_str="select max(temp1),max(temp2) from temperatur where datum='"+datum+"'";
 				if (debug) System.out.println(stm_str);
 				stmt = con.prepareStatement(stm_str);
 				res = stmt.executeQuery();
@@ -175,7 +175,7 @@ public class DB {
 			try {
 				PreparedStatement stmt;
 				ResultSet res = null;
-				String stm_str="select min(temp1),min(temp2) from temperatur where datum="+datum;
+				String stm_str="select min(temp1),min(temp2) from temperatur where datum='"+datum+"'";
 				if (debug) System.out.println(stm_str);
 				stmt = con.prepareStatement(stm_str);
 				res = stmt.executeQuery();
@@ -331,7 +331,7 @@ public class DB {
 
 				PreparedStatement stmt;
 				ResultSet res = null;
-				String str_stm="select zeit,temp1 from temperatur where datum="+datum+" order by zeit";
+				String str_stm="select zeit,temp1 from temperatur where datum='"+datum+"' order by zeit";
 				if (debug) System.out.println(str_stm);
 				stmt = con
 						.prepareStatement(str_stm);
@@ -357,7 +357,7 @@ public class DB {
 
 				PreparedStatement stmt;
 				ResultSet res = null;
-				String str_stm="select datum,zeit,temp1,temp2,temp3 from temperatur where datum>=" + datum_start+" and datum <="+ datum_end + " order by zeit";
+				String str_stm="select datum,zeit,temp1,temp2,temp3 from temperatur where datum>='" + datum_start+"' and datum <='"+ datum_end + "' order by zeit";
 				if (debug) System.out.println(str_stm);
 				stmt = con
 						.prepareStatement(str_stm);

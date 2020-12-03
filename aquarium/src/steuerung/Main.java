@@ -118,7 +118,7 @@ import javax.servlet.http.HttpSession;
 				out.println(f.format(sum));
 				out.println("</font>");
 				Calendar cal= Calendar.getInstance();
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 				String akt_datum=formatter.format(cal.getTime());
 				temp = db.getAvgTemp(akt_datum);
 				sum=0.0;
