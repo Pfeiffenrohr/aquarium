@@ -58,12 +58,12 @@ import common.SystemExecute;;
 			}
 			if (db.con != null) {
 				Calendar cal = Calendar.getInstance();
-				SimpleDateFormat formatter = new SimpleDateFormat("HHmm");
+				SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
 				String zeit = formatter.format(cal.getTime());
 				Hashtable status_hash = (Hashtable) db.getStatus();
 				Status.Luft = ((Integer) status_hash.get("Luft")).intValue();
 				// SollWert auslesen
-				int sollLicht = db.getLuftSoll(zeit + "00");
+				int sollLicht = db.getLuftSoll(zeit + ":00");
 				// Isttemperatur auslesen
 				String workdir = (String) config.get("workdir");
 				try {
