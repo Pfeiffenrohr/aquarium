@@ -62,14 +62,14 @@ public class DB {
 			try {
 				PreparedStatement stmt;
 				ResultSet res = null;
-				String stm_str="select a.item, a.zustand_soll  from status As a";
+				String stm_str="select a.item as aitem, a.zustand_soll as azustand  from status As a";
 				if (debug) System.out.println(stm_str);
 				stmt = con.prepareStatement(stm_str);
 				res = stmt.executeQuery();
 				while (res.next()) {
 					
 					
-					hash.put((String) res.getString("a.item"), new Integer(res.getInt("a.zustand_soll")));		
+					hash.put((String) res.getString("aitem"), new Integer(res.getInt("azustand")));		
 				}
 			} catch (SQLException e) {
 				System.err.println("Konnte Select-Anweisung nicht ausführen" + e);
@@ -103,15 +103,15 @@ public class DB {
 			try {
 				PreparedStatement stmt;
 				ResultSet res = null;
-				String stm_str=" select t.temp1, t.temp2 from temperatur As t order by datum desc, Zeit desc limit 1";
+				String stm_str=" select t.temp1 as temp1, t.temp2 as temp2 from temperatur As t order by datum desc, Zeit desc limit 1";
 				if (debug) System.out.println(stm_str);
 				stmt = con.prepareStatement(stm_str);
 				res = stmt.executeQuery();
 				while (res.next()) {
 					
 					
-					vec.add((Double) res.getDouble("t.temp1"));
-					vec.add((Double) res.getDouble("t.temp2"));
+					vec.add((Double) res.getDouble("temp1"));
+					vec.add((Double) res.getDouble("temp2"));
 					
 				}
 			} catch (SQLException e) {
@@ -127,15 +127,15 @@ public class DB {
 			try {
 				PreparedStatement stmt;
 				ResultSet res = null;
-				String stm_str="select avg(temp1),avg(temp2) from temperatur where datum='"+datum+"'";
+				String stm_str="select avg(temp1) as avgtemp1,avg(temp2) as avgtemp2 from temperatur where datum='"+datum+"'";
 				if (debug) System.out.println(stm_str);
 				stmt = con.prepareStatement(stm_str);
 				res = stmt.executeQuery();
 				while (res.next()) {
 					
 					
-					vec.add((Double) res.getDouble("avg(temp1)"));
-					vec.add((Double) res.getDouble("avg(temp2)"));
+					vec.add((Double) res.getDouble("avgtemp1"));
+					vec.add((Double) res.getDouble("avgtemp2"));
 					
 				}
 			} catch (SQLException e) {
@@ -151,15 +151,15 @@ public class DB {
 			try {
 				PreparedStatement stmt;
 				ResultSet res = null;
-				String stm_str="select max(temp1),max(temp2) from temperatur where datum='"+datum+"'";
+				String stm_str="select max(temp1) as maxtemp1,max(temp2) as maxtemp2 from temperatur where datum='"+datum+"'";
 				if (debug) System.out.println(stm_str);
 				stmt = con.prepareStatement(stm_str);
 				res = stmt.executeQuery();
 				while (res.next()) {
 					
 					
-					vec.add((Double) res.getDouble("max(temp1)"));
-					vec.add((Double) res.getDouble("max(temp2)"));
+					vec.add((Double) res.getDouble("maxtemp1"));
+					vec.add((Double) res.getDouble("maxtemp2"));
 					
 				}
 			} catch (SQLException e) {
@@ -175,15 +175,15 @@ public class DB {
 			try {
 				PreparedStatement stmt;
 				ResultSet res = null;
-				String stm_str="select min(temp1),min(temp2) from temperatur where datum='"+datum+"'";
+				String stm_str="select min(temp1) as mintemp1,min(temp2) as mintemp2 from temperatur where datum='"+datum+"'";
 				if (debug) System.out.println(stm_str);
 				stmt = con.prepareStatement(stm_str);
 				res = stmt.executeQuery();
 				while (res.next()) {
 					
 					
-					vec.add((Double) res.getDouble("min(temp1)"));
-					vec.add((Double) res.getDouble("min(temp2)"));
+					vec.add((Double) res.getDouble("mintemp1"));
+					vec.add((Double) res.getDouble("mintemp2"));
 					
 				}
 			} catch (SQLException e) {
