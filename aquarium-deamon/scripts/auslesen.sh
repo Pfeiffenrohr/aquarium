@@ -6,7 +6,7 @@ AVRNETIO_IP=192.168.2.24
 AVRNETIO_PORT=2701
 Zeit=`date '+%H:%M:%S'`
 datum=`date '+%Y-%m-%d'`
-sql="insert into temperatur values(default,$datum,$Zeit"
+sql="insert into temperatur values(default,'$datum','$Zeit'"
 # Get IDs of 1-Wire sensors
 SENSOR_ID=`echo 1w list | nc -w 2 $AVRNETIO_IP $AVRNETIO_PORT | grep -v OK || exit 1`
 
