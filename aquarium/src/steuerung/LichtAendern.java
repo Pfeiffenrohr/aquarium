@@ -162,7 +162,7 @@ String insertData(AquaDB db,String startstunde,String startminute,String endstun
 	{
 		startminute="0"+startminute;
 	}
-	Double startTemp = db.getTempSoll(startstunde+startminute+"00");
+	Double startTemp = db.getTempSoll(startstunde+":"+startminute+":00");
 	if (debug)
 	{
 	System.out.println("Starttemperatur="+startTemp);
@@ -213,7 +213,7 @@ String insertData(AquaDB db,String startstunde,String startminute,String endstun
 			startminute=""+minute;
 		}
 	
-		String zeit=startstunde+startminute+"00";		
+		String zeit=startstunde+":"+startminute+":00";		
 		System.out.println("Zeit = "+zeit);
 		db.setNewTemp_soll(f.format(startTemp), zeit);
 		calStart.add(Calendar.MINUTE,1);
