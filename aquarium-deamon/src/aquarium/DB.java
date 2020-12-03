@@ -19,6 +19,12 @@ public class DB {
 		public boolean dataBaseConnect(String username,String password, String connectString) {
 			if (debug) if (debug) System.out.println("Verbinde mich zur Datenbank");
 			try {
+				String url = connectString +"?"+
+						"ssl=true&"+
+						"sslfactory=org.postgresql.ssl.NonValidatingFactory";
+				Properties props = new Properties();
+				props.setProperty("user",username);
+				props.setProperty("password",password);
 				try {
 					Class.forName("org.postgresql.Driver").newInstance(); // DB-
 																			// Treiber
@@ -29,18 +35,7 @@ public class DB {
 					E.printStackTrace();
 					return false;
 				}
-				String url = connectString +"?"+
-						"ssl=true&"+
-						"sslfactory=org.postgresql.ssl.NonValidatingFactory";
-				Properties props = new Properties();
-				props.setProperty("user",username);
-				props.setProperty("password",password);
-				//props.setProperty("ssl","true");
-				Connection con = DriverManager.getConnection(url, props);
-				//String url = "jdbc:mysql://192.168.2.8/aquarium";
-				//con = DriverManager.getConnection(connectString, username, password); // Verbindung
-			      	// herstellen
-				//con = DriverManager.getConnection(url, "aquarium", "aquarium"); 
+			    con = DriverManager.getConnection(url, props);
 				if (debug) System.out.println("Verbindung erstellt");
 			} catch (Exception e) {
 				e.printStackTrace();
