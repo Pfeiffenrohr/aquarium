@@ -220,7 +220,7 @@ public class DB {
 			try {
 				PreparedStatement stmt;
 				ResultSet res = null;
-				String stm_str=" select value from temperatur_soll where zeit="+zeit;
+				String stm_str=" select value from temperatur_soll where zeit='"+zeit+"'";
 				if (debug) System.out.println(stm_str);
 				stmt = con.prepareStatement(stm_str);
 				res = stmt.executeQuery();
@@ -243,7 +243,7 @@ public class DB {
 			try {
 				PreparedStatement stmt;
 				ResultSet res = null;
-				String stm_str=" select value from licht_soll where zeit="+zeit;
+				String stm_str=" select value from licht_soll where zeit='"+zeit+"'";
 				if (debug) System.out.println(stm_str);
 				stmt = con.prepareStatement(stm_str);
 				res = stmt.executeQuery();
@@ -266,7 +266,7 @@ public class DB {
 			try {
 				PreparedStatement stmt;
 				ResultSet res = null;
-				String stm_str=" select value from luft_soll where zeit="+zeit;
+				String stm_str=" select value from luft_soll where zeit='"+zeit+"'";
 				if (debug) System.out.println(stm_str);
 				stmt = con.prepareStatement(stm_str);
 				res = stmt.executeQuery();
@@ -288,7 +288,7 @@ public class DB {
 		public boolean setNewTemp_soll (String temp, String zeit)
 		{
 			try { 
-				String str= "update temperatur_soll set " +"value = '"+temp +"' where zeit = "+zeit;
+				String str= "update temperatur_soll set " +"value = '"+temp +"' where zeit = '"+zeit+"'";
 			if (debug) System.out.println(str);
 			PreparedStatement stmt;
 			stmt = con.prepareStatement(str);
