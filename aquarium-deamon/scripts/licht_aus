@@ -10,7 +10,8 @@ RC=$?
 if [ $RC -eq 0 ]; then
         sql="insert into ausEin_Historie values(default,$datum,$Zeit,'Licht',0,0)"
        # mysql -u aquarium -paquarium -h $dbhost -D aquarium -e "$sql" >/dev/null 2>&1
+       export PGCLIENTENCODING='utf-8'
        export PGPASSWORD=aquarium
-       psql -h  127.0.0.1  -U aquarium -d aquarium -p 26257 -c "$sql"
+       psql -h  $dbhost -U aquarium -d aquarium -p 26257 -c "$sql"
 fi
 exit $RC
