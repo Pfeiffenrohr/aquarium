@@ -26,6 +26,7 @@ done
 sql="$sql,0.0)"
 #echo $sql
 #mysql -u aquarium -paquarium -h $dbhost -D aquarium -e "$sql" >/dev/null 2>&1
+  export PGCLIENTENCODING='utf-8'
   export PGPASSWORD=aquarium
-  psql -h  127.0.0.1  -U aquarium -d aquarium -p 26257 -c "$sql"     
+  psql -h   $dbhost  -U aquarium -d aquarium -p 26257 -c "$sql"     
 exit 0

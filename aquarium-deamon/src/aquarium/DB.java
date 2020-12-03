@@ -385,11 +385,11 @@ public class DB {
 		{
 			try { 
 				Calendar cal = Calendar.getInstance();
-				SimpleDateFormat formater = new SimpleDateFormat("HHmmss");
+				SimpleDateFormat formater = new SimpleDateFormat("HH:mm:ss");
 				String zeit = formater.format(cal.getTime());
-				 formater = new SimpleDateFormat("yyyyMMdd");
+				 formater = new SimpleDateFormat("yyyy-MM-dd");
 				String datum =  formater.format(cal.getTime());
-				String str= "insert into wasserstand values (null,"+wasserstand+","+datum+","+zeit+")";
+				String str= "insert into wasserstand values (null,"+wasserstand+",'"+datum+"','"+zeit+"')";
 			if (debug) System.out.println(str);
 			PreparedStatement stmt;
 			stmt = con.prepareStatement(str);
