@@ -56,12 +56,12 @@ public class LichtThread implements Runnable {
 			}
 			if (db.con != null) {
 				Calendar cal = Calendar.getInstance();
-				SimpleDateFormat formatter = new SimpleDateFormat("HHmm");
+				SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
 				String zeit = formatter.format(cal.getTime());
 				Hashtable status_hash = (Hashtable) db.getStatus();
 				Status.Licht = ((Integer) status_hash.get("Licht")).intValue();
 				// SollWert auslesen
-				int sollLicht = db.getLichtSoll(zeit + "00");
+				int sollLicht = db.getLichtSoll(zeit + ":00");
 				// Isttemperatur auslesen
 				String workdir = (String) config.get("workdir");
 				log.writeLog(8, "Licht soll = "+ sollLicht + " Status.Licht = "+Status.Licht);

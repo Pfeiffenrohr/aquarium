@@ -57,11 +57,11 @@ import common.SystemExecute;;
 			}
 			if (db.con != null) {
 				Calendar cal = Calendar.getInstance();
-				SimpleDateFormat formatter = new SimpleDateFormat("HHmm");
+				SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
 
 				String zeit = formatter.format(cal.getTime());
 				// Solltemperaturn auslesen
-				double sollTemp = db.getTempSoll(zeit+"00");
+				double sollTemp = db.getTempSoll(zeit+":00");
 		    log.solltemp=sollTemp;
 		  
 		    //Isttemperatur auslesen
