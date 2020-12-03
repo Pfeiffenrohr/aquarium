@@ -24,7 +24,8 @@ public class DB {
 																			// laden
 				} catch (Exception E) {
 					System.err
-							.println("Konnte Postgres Datenbank-Treiber nicht laden!");
+							.println("Konnte Postgres Datenbank-Treiber nicht laden!" );
+					E.printStackTrace();
 					return false;
 				}
 				//String url = "jdbc:mysql://192.168.2.8/aquarium";
