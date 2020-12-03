@@ -1,14 +1,16 @@
 #!/bin/bash
 WORKDIR=$1
-Zeit=`date '+%H%M%S'`
-datum=`date '+%Y%m%d'`
+Zeit=`date '+%H:%M:%S'`
+datum=`date '+%Y-%m-%d'`
 echo "Schalte Heizung aus"
 # Dose 2
 echo io set port 2 02 02 | nc -w 2 192.168.2.24 2701
 RC=$?
 
 if [ $RC -eq 0 ]; then
-        sql="insert into ausEin_Historie values(null,$datum,$Zeit,'Heizung',0,0)"
-        mysql -u aquarium -paquarium -h $dbhost -D aquarium -e "$sql" >/dev/null 2>&1
+        sql="insert into ausEin_Historie values(default,$datum,$Zeit,'Heizung',0,0)"
+        #mysql -u aquarium -paquarium -h $dbhost -D aquarium -e "$sql" >/dev/null 2>&1
+        export PGPASSWORD=aquarium
+        psql -h  127.0.0.1  -U aquarium -d aquarium -p 26257 -c "$sql"
 fi
 exit $RC

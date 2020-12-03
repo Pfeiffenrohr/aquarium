@@ -4,9 +4,9 @@ WORKDIR=$1
 # IP address of AVR-NET-IO board and port number
 AVRNETIO_IP=192.168.2.24
 AVRNETIO_PORT=2701
-Zeit=`date '+%H%M%S'`
-datum=`date '+%Y%m%d'`
-sql="insert into temperatur values(null,$datum,$Zeit"
+Zeit=`date '+%H:%M:%S'`
+datum=`date '+%Y-%m-%d'`
+sql="insert into temperatur values(default,$datum,$Zeit"
 # Get IDs of 1-Wire sensors
 SENSOR_ID=`echo 1w list | nc -w 2 $AVRNETIO_IP $AVRNETIO_PORT | grep -v OK || exit 1`
 
@@ -25,5 +25,7 @@ do
 done
 sql="$sql,0.0)"
 #echo $sql
-mysql -u aquarium -paquarium -h $dbhost -D aquarium -e "$sql" >/dev/null 2>&1
+#mysql -u aquarium -paquarium -h $dbhost -D aquarium -e "$sql" >/dev/null 2>&1
+  export PGPASSWORD=aquarium
+  psql -h  127.0.0.1  -U aquarium -d aquarium -p 26257 -c "$sql"     
 exit 0
