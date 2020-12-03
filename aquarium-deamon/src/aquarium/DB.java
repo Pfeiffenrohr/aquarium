@@ -19,12 +19,12 @@ public class DB {
 			if (debug) if (debug) System.out.println("Verbinde mich zur Datenbank");
 			try {
 				try {
-					Class.forName("org.gjt.mm.mysql.Driver").newInstance(); // DB-
+					Class.forName("org.postgresql.Driver").newInstance(); // DB-
 																			// Treiber
 																			// laden
 				} catch (Exception E) {
 					System.err
-							.println("Konnte MySQL Datenbank-Treiber nicht laden!");
+							.println("Konnte Postgres Datenbank-Treiber nicht laden!");
 					return false;
 				}
 				//String url = "jdbc:mysql://192.168.2.8/aquarium";
