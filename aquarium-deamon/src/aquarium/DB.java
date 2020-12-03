@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Hashtable;
+import java.util.Properties;
 import java.util.Vector;
 public class DB {
 		boolean debug=false;
@@ -28,9 +29,15 @@ public class DB {
 					E.printStackTrace();
 					return false;
 				}
+				String url = connectString;
+				Properties props = new Properties();
+				props.setProperty("user",username);
+				props.setProperty("password",password);
+				props.setProperty("ssl","true");
+				Connection con = DriverManager.getConnection(url, props);
 				//String url = "jdbc:mysql://192.168.2.8/aquarium";
-				con = DriverManager.getConnection(connectString, username, password); // Verbindung
-			      													// herstellen
+				//con = DriverManager.getConnection(connectString, username, password); // Verbindung
+			      	// herstellen
 				//con = DriverManager.getConnection(url, "aquarium", "aquarium"); 
 				if (debug) System.out.println("Verbindung erstellt");
 			} catch (Exception e) {

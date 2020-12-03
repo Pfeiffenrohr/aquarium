@@ -9,7 +9,7 @@ debug 3
 # Inforamtionen zur Datenbank 
 #db_server jdbc:mysql://localhost/aquarium
 #db_server jdbc:mysql://192.168.2.19/aquarium
-db_server jdbc:postgres://192.168.2.28:26257/aquarium
+db_server jdbc:postgresql://192.168.2.28:26257/aquarium
 db_user aquarium
 db_password aquarium
 
