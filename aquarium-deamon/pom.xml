@@ -24,9 +24,6 @@
             <goals>
                 <goal>copy-dependencies</goal>
             </goals>
-            <configuration>
-                <outputDirectory>${project.build.directory}/lib</outputDirectory>
-            </configuration>
         </execution>
     </executions>
 </plugin>
@@ -38,5 +35,10 @@
   		<artifactId>bmw</artifactId>
   		<version>1.0</version>
   	</dependency>
+      <dependency>
+          <groupId>mysql</groupId>
+          <artifactId>mysql-connector-java</artifactId>
+          <version>8.0.24</version>
+      </dependency>
   </dependencies>
 </project>
