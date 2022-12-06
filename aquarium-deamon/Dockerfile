@@ -45,4 +45,5 @@ RUN dos2unix /var/lib/aquarium/bin/*
 
 RUN cd /var/lib/aquarium/sensoren && ln -s 100e3e9002080016 sensor1
 
+COPY target/lib/*.jar /var/lib/aquarium/
 ENTRYPOINT ["/var/lib/aquarium/bin/startDeamon.sh"]
