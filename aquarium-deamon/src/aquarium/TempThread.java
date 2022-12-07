@@ -39,7 +39,6 @@ import common.SystemExecute;;
 		Status.Heizung = ((Integer) status_hash.get("Heizung")).intValue();
 		//for (int i = 0; i < 5; i++) {
 		while (run == 1) {
-			System.out.println("Iteration Tempthread");
 			if (db == null) {
 				// Das mu� eine Endlosschleife werden
 				if (db.dataBaseConnect((String) config.get("db_user"), (String) config.get("db_password"),

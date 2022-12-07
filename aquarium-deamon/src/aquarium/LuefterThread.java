@@ -41,7 +41,6 @@ import common.SystemExecute;;
 		
 		//for (int i = 0; i < 5; i++) {
 		while (run == 1) {
-			System.out.println("Iteration Luftthread");
 			if (db == null) {
 				if (db.dataBaseConnect((String) config.get("db_user"), (String) config.get("db_password"),
 						(String) config.get("db_server"))) {
