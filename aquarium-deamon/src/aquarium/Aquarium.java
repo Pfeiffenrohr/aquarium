@@ -190,20 +190,22 @@ public class Aquarium {
 					}
 
 					// System.out.println("ret = "+se.returnstring+"<<<");
-					if (!se.returnstring.equals(""))
-						log.writeLog(3, se.returnstring);
-					if (!se.errorstring.equals(""))
-						log.writeLog(0, se.errorstring);
-					if (se.rc == 0) {
-						log.writeLog(1, "Alle Ports auf enabled geschaltet");
-						Status.Heizung=1;
-						Status.Licht=1;
-						Status.Luft=1;
-					} else {
-						log.writeLog(0,
-								"Error!!! Ports konnten nicht enabled werden!!!!");
+					try {
+						if (!se.returnstring.equals(""))
+							log.writeLog(3, se.returnstring);
+						if (!se.errorstring.equals(""))
+							log.writeLog(0, se.errorstring);
+						if (se.rc == 0) {
+							log.writeLog(1, "Alle Ports auf enabled geschaltet");
+							Status.Heizung = 1;
+							Status.Licht = 1;
+							Status.Luft = 1;
+						} else {
+							log.writeLog(0,
+									"Error!!! Ports konnten nicht enabled werden!!!!");
+						}
 					}
-
+			         catch  (Exception ex)  {System.out.println("Exeception"); }
 				}
 			}
 			
@@ -292,7 +294,7 @@ public class Aquarium {
 						log.writeLog(1,"!!Konnte Thread nicht starten...");
 					}	
 					log.writeLog(1,
-							"!!!Warnung!! Tempthread war abgestürzt. Neu gestartet ... ");
+							"!!!Warnung!! Tempthread war abgestï¿½rzt. Neu gestartet ... ");
 				}
 
 				if (!t2.isAlive()) {
@@ -311,7 +313,7 @@ public class Aquarium {
 						log.writeLog(1,"!!Konnte Thread nicht starten...");
 					}	
 					log.writeLog(1,
-							"!!!Warnung!! Lichtthread war abgestürzt. Neu gestartet ... ");
+							"!!!Warnung!! Lichtthread war abgestï¿½rzt. Neu gestartet ... ");
 				}
 
 				if (!t3.isAlive()) {
@@ -329,7 +331,7 @@ public class Aquarium {
 					{
 						log.writeLog(1,"!!Konnte Thread nicht starten...");
 					}	
-					log.writeLog(1,"!!!Warnung!! Luefterthread war abgestürzt. Neu gestartet ... ");
+					log.writeLog(1,"!!!Warnung!! Luefterthread war abgestï¿½rzt. Neu gestartet ... ");
 				}
 				
 				if (!t4.isAlive()) {
@@ -347,7 +349,7 @@ public class Aquarium {
 					{
 						log.writeLog(1,"!!Konnte Thread nicht starten...");
 					}	
-					log.writeLog(1,"!!!Warnung!! Wasserstandthread war abgestürzt. Neu gestartet ... ");
+					log.writeLog(1,"!!!Warnung!! Wasserstandthread war abgestï¿½rzt. Neu gestartet ... ");
 				}
 				 //t1.interrupt();
 				 //t2.interrupt();

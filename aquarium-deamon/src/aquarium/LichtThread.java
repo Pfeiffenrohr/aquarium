@@ -39,6 +39,7 @@ public class LichtThread implements Runnable {
 
 		// for (int i = 0; i < 5; i++) {
 		while (run == 1) {
+			System.out.println("Iteration lichtthread");
 			if (db == null) {
 				if (db.dataBaseConnect((String) config.get("db_user"), (String) config.get("db_password"),
 						(String) config.get("db_server"))) {
@@ -119,7 +120,7 @@ public class LichtThread implements Runnable {
 				// db.closeConnection();
 			}
 			try {
-				Thread.sleep(120000);
+				Thread.sleep(12000);
 			} catch (Exception e) {
 				System.out.println(e);
 				log.writeLog(0, e.toString());

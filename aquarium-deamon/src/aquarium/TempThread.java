@@ -39,8 +39,9 @@ import common.SystemExecute;;
 		Status.Heizung = ((Integer) status_hash.get("Heizung")).intValue();
 		//for (int i = 0; i < 5; i++) {
 		while (run == 1) {
+			System.out.println("Iteration Tempthread");
 			if (db == null) {
-				// Das muß eine Endlosschleife werden
+				// Das muï¿½ eine Endlosschleife werden
 				if (db.dataBaseConnect((String) config.get("db_user"), (String) config.get("db_password"),
 						(String) config.get("db_server"))) {
 					log.writeLog(4, "Verbindung zur Datenbank erstellt ..");
