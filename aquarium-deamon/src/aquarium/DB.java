@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.Vector;
+import com.mysql.jdbc.Driver;
 public class DB {
 		boolean debug=false;
 		protected Connection con = null;
@@ -18,15 +19,15 @@ public class DB {
 		public boolean dataBaseConnect(String username,String password, String connectString) {
 			if (debug) if (debug) System.out.println("Verbinde mich zur Datenbank");
 			try {
-				try {
-					Class.forName("org.gjt.mm.mysql.Driver").newInstance(); // DB-
+			/*	try {
+					Class.forName("com.mysql.jdbc.Driver").newInstance(); // DB-
 																			// Treiber
 																			// laden
 				} catch (Exception E) {
 					System.err
 							.println("Konnte MySQL Datenbank-Treiber nicht laden!");
 					return false;
-				}
+				}*/
 				//String url = "jdbc:mysql://192.168.2.8/aquarium";
 				con = DriverManager.getConnection(connectString, username, password); // Verbindung
 			      													// herstellen
